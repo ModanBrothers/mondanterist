@@ -5,7 +5,7 @@ import { actions as pinActions } from './../../redux/modules/pin';
 
 import SmallFormInput from './../smallFormInput/smallFormInput';
 import TextArea from './../textArea/textArea';
-import ImageLoader from './../imageLoader/ImageLoader';
+import ImageUploader from './../imageUploader/ImageUploader';
 
 const mapStateToProps = ({ pin }) => ({
   imagePreview: pin.get('imagePreview')
@@ -32,7 +32,7 @@ export class PinForm extends React.Component {
 
     return (
       <form className="form-horizontal" onSubmit={ handleSubmit(this.props.savePin) } >
-        <ImageLoader
+        <ImageUploader
           field={ image }
           imageHandler={ ::this.handleImage }
           filePreview={ imagePreview }

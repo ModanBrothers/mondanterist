@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import DropZone from 'react-DropZone';
 
-export function ImageLoader({ field, imageHandler, filePreview }) {
+export function ImageUploader({ field, imageHandler, filePreview }) {
   if (!filePreview) {
     return (
       <DropZone className="form-group" { ...field } onDrop={ imageHandler }>
@@ -13,10 +13,10 @@ export function ImageLoader({ field, imageHandler, filePreview }) {
   return <img className="img-fluid"src={ filePreview } />;
 }
 
-ImageLoader.propTypes = {
+ImageUploader.propTypes = {
   field: PropTypes.object.isRequired,
   imageHandler: PropTypes.func.isRequired,
   filePreview: PropTypes.string
 };
 
-export default ImageLoader;
+export default ImageUploader;
