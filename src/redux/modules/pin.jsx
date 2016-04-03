@@ -1,9 +1,10 @@
+import pinState from './../states/pinState.jsx';
 
 export const POST_PIN = 'POST_PIN';
+export const FILE_PREVIEW = 'FILE_PREVIEW';
 
 export function logResponse(response) {
   console.log('this is the response', response);
-  response.text().then(stuff => console.log('this is the cors response', stuff));
 }
 
 export function createFormData(payload) {
@@ -18,7 +19,7 @@ export function createFormData(payload) {
   return formData;
 }
 
-export function postPin(payload) {
+export function savePin(payload) {
   const formData = createFormData(payload);
   return dispatch => fetch('/api/pins/savePin', {
     method: 'POST',
@@ -27,11 +28,22 @@ export function postPin(payload) {
     .then(data => dispatch(logResponse(data)));
 }
 
+export function renderPreview(payload) {
+  return { type: FILE_PREVIEW,
+           payload };
+}
 
-export default function pinReducer(state = {}, action) {
+export const actions = {
+  renderPreview,
+  savePin
+};
+
+export default function pinReducer(state = pinState, action) {
   switch (action.type) {
     case POST_PIN:
       return Object.assign({}, state, action.payload);
+    case FILE_PREVIEW:
+      return state.set('imagePreview', action.payload);
     default:
       return state;
   }

@@ -1,32 +1,42 @@
 import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 
-import { postPin } from './../../redux/modules/pin.js';
+import { actions as pinActions } from './../../redux/modules/pin';
 
-import DropZone from 'react-DropZone';
 import SmallFormInput from './../smallFormInput/smallFormInput.jsx';
 import TextArea from './../textArea/textArea.jsx';
+import ImageLoader from './../imageLoader/ImageLoader';
+
+const mapStateToProps = ({ pin }) => ({
+  imagePreview: pin.get('imagePreview')
+});
 
 export class PinForm extends React.Component {
   static propTypes = {
     fields: PropTypes.object.isRequired,
     handleSubmit: PropTypes.func.isRequired,
-    postPin: PropTypes.func.isRequired
-  }
+    savePin: PropTypes.func.isRequired,
+    renderPreview: PropTypes.func.isRequired,
+    imagePreview: PropTypes.string
+  };
 
   handleImage(imageFile) {
+    this.props.renderPreview(imageFile[0].preview);
     return imageFile;
   }
 
   render() {
-    const { fields: { title, description, tags, link, image }, handleSubmit } = this.props;
+    const { fields: {
+      title, description, tags, link, image
+    }, handleSubmit, imagePreview } = this.props;
+
     return (
-      <form className="form-horizontal" onSubmit={ handleSubmit(this.props.postPin) } >
-        <div className="form-group">
-          <DropZone { ...image } onDrop={ this.handleImage }>
-            <div>Drag and Drop your image here, or click to select an image.</div>
-          </DropZone>
-        </div>
+      <form className="form-horizontal" onSubmit={ handleSubmit(this.props.savePin) } >
+        <ImageLoader
+          field={ image }
+          imageHandler={ ::this.handleImage }
+          filePreview={ imagePreview }
+        />
         <SmallFormInput field={ title } inputLabel="Title" />
         <TextArea field={ description } inputLabel="Description" rows={ 3 } />
         <SmallFormInput field={ link } inputLabel="Link" />
@@ -41,6 +51,6 @@ export class PinForm extends React.Component {
 
 
 export default reduxForm({
-  form: 'postPin',
+  form: 'savePin',
   fields: ['title', 'description', 'tags', 'link', 'image']
-}, () => { }, { postPin })(PinForm);
+}, mapStateToProps, pinActions)(PinForm);
