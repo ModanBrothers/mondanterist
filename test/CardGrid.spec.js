@@ -1,8 +1,8 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import CardGrid from './../src/components/CardGrid/CardGrid.jsx';
-import Card from './../src/components/card/card.jsx';
+import CardGrid from './../src/components/CardGrid/CardGrid';
+import Card from './../src/components/card/card';
 
 describe('CardGrid (component)', () => {
   const shallowCardGrid = function (props) {

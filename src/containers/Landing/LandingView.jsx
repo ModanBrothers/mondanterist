@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from './../../components/loginForm/loginForm.jsx';
+import LoginForm from './../../components/loginForm/loginForm';
 import { Link } from 'react-router';
 
 export default class LandingView extends React.Component {

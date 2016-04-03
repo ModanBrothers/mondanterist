@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Card from './../src/components/card/card.jsx';
+import Card from './../src/components/card/card';
 
 describe('Card (Component)', () => {
   const wrapper = shallow(<Card />);

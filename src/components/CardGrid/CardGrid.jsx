@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import Card from './../card/card.jsx';
+import Card from './../card/card';
 
 require('./cardgrid.scss');
 

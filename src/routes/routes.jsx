@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
-import CoreLayout from './../layouts/CoreLayout.jsx';
-import LandingView from './../containers/Landing/LandingView.jsx';
+import CoreLayout from './../layouts/CoreLayout';
+import LandingView from './../containers/Landing/LandingView';
 
-import counterRoutes from './counterRoutes.jsx';
-import exploreRoutes from './exploreRoutes.jsx';
+import counterRoutes from './counterRoutes';
+import exploreRoutes from './exploreRoutes';
 
 export default (
   <Route path="/" component={CoreLayout}>

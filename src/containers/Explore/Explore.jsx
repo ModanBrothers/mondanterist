@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-import NavBar from './../../components/navbar/navbar.jsx';
-import CardGrid from './../../components/CardGrid/CardGrid.jsx';
-import ButtonModal from './../../components/ButtonModal/ButtonModal.jsx';
-import PinForm from './../../components/pinForm/pinForm.jsx';
+import NavBar from './../../components/navbar/navbar';
+import CardGrid from './../../components/CardGrid/CardGrid';
+import ButtonModal from './../../components/ButtonModal/ButtonModal';
+import PinForm from './../../components/pinForm/pinForm';
 
 require('./explore.scss');
 

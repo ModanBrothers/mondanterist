@@ -1,4 +1,4 @@
-import pinState from './../states/pinState.jsx';
+import pinState from './../states/pinState';
 
 export const POST_PIN = 'POST_PIN';
 export const FILE_PREVIEW = 'FILE_PREVIEW';

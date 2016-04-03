@@ -3,8 +3,8 @@ import { reduxForm } from 'redux-form';
 
 import { actions as pinActions } from './../../redux/modules/pin';
 
-import SmallFormInput from './../smallFormInput/smallFormInput.jsx';
-import TextArea from './../textArea/textArea.jsx';
+import SmallFormInput from './../smallFormInput/smallFormInput';
+import TextArea from './../textArea/textArea';
 import ImageLoader from './../imageLoader/ImageLoader';
 
 const mapStateToProps = ({ pin }) => ({

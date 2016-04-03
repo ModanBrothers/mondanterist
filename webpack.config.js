@@ -10,7 +10,7 @@ const webpackConfiguration = {
   entry: [
     'bootstrap-loader',
     'tether',
-    path.resolve(ROOT_PATH, 'src/main.js')
+    path.resolve(ROOT_PATH, 'src/main.jsx')
   ],
   module: {
     preLoaders: [{
